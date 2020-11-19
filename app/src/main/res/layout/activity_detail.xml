@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:nextFocusRight="@id/imageView2">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:onClick="back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:focusedByDefault="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#4CBB17"
+        android:src="@drawable/ic_baseline_save_24" />
+
+    <EditText
+        android:id="@+id/taskView"
+        android:layout_width="400dp"
+        android:layout_height="63dp"
+        android:layout_below="@+id/fab"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:background="@null"
+        android:focusedByDefault="false"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="4dp" />
+
+    <EditText
+        android:id="@+id/descriptionView"
+        android:background="@null"
+        android:layout_width="406dp"
+        android:layout_height="278dp"
+        android:layout_below="@+id/taskView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:hint="@string/edit_description"
+        android:textSize="24sp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="4dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/fab"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="?android:attr/listDivider" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/taskView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentStart="true"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/divider"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-10dp"
+        android:text="@string/task" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/divider2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-50dp"
+        android:text="@string/description" />
+</RelativeLayout>

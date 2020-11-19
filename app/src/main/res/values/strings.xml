@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Done!</string>
+    <string name="save">Save</string>
+    <string name="new_task">New Task</string>
+    <string name="new_description">New Description</string>
+    <string name="edit_description">Create A Description</string>
+    <string name="new_event">New Event</string>
+    <string name="tasks">Tasks</string>
+    <string name="task">Task</string>
+    <string name="description">Description</string>
+    <string name="events">Events</string>
+</resources>
