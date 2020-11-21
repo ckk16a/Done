@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.done.Utils.TaskDatabaseHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +29,8 @@ public class EventActivity extends AppCompatActivity implements DialogCloseListe
     private TaskDatabaseHandler db2;
 
     private RecyclerView eventsRecyclerView;
+    private TextView noEvent;
+    private TextView createEvent;
     private EventAdapter eventsAdapter;
     private FloatingActionButton fab;
 
@@ -45,6 +48,9 @@ public class EventActivity extends AppCompatActivity implements DialogCloseListe
         db2 = new TaskDatabaseHandler(this);
         db2.openDatabase();
 
+        noEvent = findViewById(R.id.noEventText);
+        createEvent = findViewById(R.id.createEventText);
+
         eventsRecyclerView = findViewById(R.id.eventsRecyclerView);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         eventsAdapter = new EventAdapter(db, db2, EventActivity.this);
@@ -60,6 +66,8 @@ public class EventActivity extends AppCompatActivity implements DialogCloseListe
 
         eventsAdapter.setEvents(eventList);
 
+        hintVisible(eventList);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,5 +81,16 @@ public class EventActivity extends AppCompatActivity implements DialogCloseListe
         eventList = db.getAllEvents();
         eventsAdapter.setEvents(eventList);
         eventsAdapter.notifyDataSetChanged();
+        hintVisible(eventList);
+    }
+
+    public void hintVisible(List<EventModel> eventList){
+        if(eventList.isEmpty()){
+            noEvent.setVisibility(View.VISIBLE);
+            createEvent.setVisibility(View.VISIBLE);
+        } else {
+            noEvent.setVisibility(View.GONE);
+            createEvent.setVisibility(View.GONE);
+        }
     }
 }

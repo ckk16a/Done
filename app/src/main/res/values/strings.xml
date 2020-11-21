@@ -9,4 +9,8 @@
     <string name="task">Task</string>
     <string name="description">Description</string>
     <string name="events">Events</string>
+    <string name="no_events_available">You don\'t have any events!</string>
+    <string name="adde">Press the plus button to create an event</string>
+    <string name="no_tasks_available">You don\'t have any tasks!</string>
+    <string name="addt">Press the plus button to create a task</string>
 </resources>

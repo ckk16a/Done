@@ -24,6 +24,27 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:nestedScrollingEnabled="true" />
 
+    <TextView
+        android:id="@+id/noEventText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="50dp"
+        android:alpha=".5"
+        android:text="@string/no_events_available"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/createEventText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:alpha=".5"
+        android:layout_marginTop="10dp"
+        android:text="@string/adde"/>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

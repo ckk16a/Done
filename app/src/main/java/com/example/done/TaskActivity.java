@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.done.Model.EventModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.example.done.Adapters.ToDoAdapter;
@@ -27,6 +28,8 @@ public class TaskActivity extends AppCompatActivity implements DialogCloseListen
     private TaskDatabaseHandler db;
 
     private RecyclerView tasksRecyclerView;
+    private TextView noTask;
+    private TextView createTask;
     private ToDoAdapter tasksAdapter;
     private FloatingActionButton fab;
 
@@ -59,6 +62,9 @@ public class TaskActivity extends AppCompatActivity implements DialogCloseListen
         db = new TaskDatabaseHandler(this);
         db.openDatabase();
 
+        noTask = findViewById(R.id.noTaskText);
+        createTask = findViewById(R.id.createTaskText);
+
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tasksAdapter = new ToDoAdapter(db, TaskActivity.this);
@@ -74,6 +80,8 @@ public class TaskActivity extends AppCompatActivity implements DialogCloseListen
 
         tasksAdapter.setTasks(taskList);
 
+        hintVisible(taskList);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +95,7 @@ public class TaskActivity extends AppCompatActivity implements DialogCloseListen
         taskList = db.getAllTasks(event);
         tasksAdapter.setTasks(taskList);
         tasksAdapter.notifyDataSetChanged();
+        hintVisible(taskList);
     }
 
     public String getEvent(){
@@ -98,5 +107,15 @@ public class TaskActivity extends AppCompatActivity implements DialogCloseListen
         Intent intent = new Intent(context, EventActivity.class);
 
         context.startActivity(intent);
+    }
+
+    public void hintVisible(List<ToDoModel> taskList){
+        if(taskList.isEmpty()){
+            noTask.setVisibility(View.VISIBLE);
+            createTask.setVisibility(View.VISIBLE);
+        } else {
+            noTask.setVisibility(View.GONE);
+            createTask.setVisibility(View.GONE);
+        }
     }
 }

@@ -77,6 +77,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         db.deleteEvent(item.getId());
         eventList.remove(position);
         notifyItemRemoved(position);
+        activity.hintVisible(eventList);
     }
 
     public void editItem(int position) {
