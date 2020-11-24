@@ -89,8 +89,9 @@ public class EventDatabaseHandler extends SQLiteOpenHelper {
     //Checks if the event is already in the database
     public boolean eventExists(String event){
         Cursor cursor = null;
-        String sql = "Select * From " + EVENT_TABLE + " where " + EVENT + " = '"+event+"'";
-        cursor= db.rawQuery(sql,null);
+        event=event.replaceAll("'","\\'");
+        String sql = "Select * From " + EVENT_TABLE + " where " + EVENT + " = ?";
+        cursor= db.rawQuery(sql,new String[] { event });
 
         if(cursor.getCount()>0){
             cursor.close();

@@ -120,6 +120,7 @@ public class AddNewEvent extends BottomSheetDialogFragment {
             ((DialogCloseListener)activity).handleDialogClose(dialog);
     }
 
+    //Checks if the event name is a duplicate, if it is it adds a copy number at the end
     private String dupName(String origName, String newName, int dupNum){
         if(db.eventExists(newName)){
             newName = origName +  " (" + dupNum + ")";
